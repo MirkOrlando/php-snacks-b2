@@ -48,3 +48,39 @@ while ($i < count($ads)) {
         $i = 0;
     }
 }
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snack 1</title>
+    <style>
+        img {
+            max-width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <?php
+    $i = 0;
+    while ($i < count($ads)) :
+        $i = rand(0, count($ads));
+        $ad = $ads[$i];
+        if ($ad['is_active']) : ?>
+            <img src="<?= $ad['image_path'] ?>" alt="">
+            <?php break; ?>
+
+        <?php else :
+            $i = 0; ?>
+        <?php endif ?>
+    <?php endwhile ?>
+</body>
+
+</html>
